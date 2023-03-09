@@ -1,4 +1,4 @@
-import express from 'express';
+import Koa from 'koa'
 import cors from 'cors'
 import MongoStore from 'connect-mongo';
 import Config from '../config';
@@ -9,16 +9,14 @@ import { loginFunc, signUpFunc } from './auth';
 import passport from 'passport';
 import logger from '../logs/logger';
 import morgan from 'morgan';
-import { graphqlHTTP } from 'express-graphql';
-import {graphqlRoot, graphqlSchema} from './graphQL/products.services.js'
 import { info } from '../docs/info';
 import swaggerUI from 'swagger-ui-express';
 import swaggerJSDoc from 'swagger-jsdoc';
 
 
-const app = express()
-app.use(express.json())
+const app = Koa()
 
+app.use(koaBody())
 
 
 // DOCUMENTACION
