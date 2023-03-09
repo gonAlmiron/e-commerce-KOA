@@ -19,15 +19,7 @@ import swaggerJSDoc from 'swagger-jsdoc';
 const app = express()
 app.use(express.json())
 
-// CONFIGURACION DE GRAPHQL
-app.use(
-  '/graphql',
-  graphqlHTTP({     
-    schema: graphqlSchema,  
-    rootValue: graphqlRoot, 
-    graphiql: true, 
-  })
-);
+
 
 // DOCUMENTACION
 const specs = swaggerJSDoc(info)
